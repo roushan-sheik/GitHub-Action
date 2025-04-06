@@ -1,0 +1,13 @@
+name: First Workflows
+on:
+  push: branches:[main]
+  pull_request:
+    branches: [main]
+jobs:
+  first-workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First Step
+        run: |-
+          echo "Hellow World"
+          echo "First Step work flow run hoisey"
