@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build Backend Image
-        run: |-
-          echo: "Backend Image is building..."
+        run: |
+          echo "Backend Image is building..."
