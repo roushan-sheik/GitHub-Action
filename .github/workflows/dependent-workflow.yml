@@ -1,0 +1,31 @@
+name: Multiple Workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  Multiple-first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step a log korte hobe
+        run: |-
+          echo: "This is fist job and first step"
+  Multiple-Second-job:
+    runs-on: ubuntu-latest
+    needs: [Multiple-first-job]
+    steps:
+      - name: First step a log korte hobe
+        run: |-
+          echo: "first job has been completed. second job is started."
+          echo: "This is fist job and Second step"
+  Multiple-Third-job:
+    runs-on: ubuntu-latest
+    needs: [Multiple-first-job, Multiple-Second-job]
+    steps:
+      - name: First step a log korte hobe
+        run: |-
+          echo: "first job has been completed and  second job also."
+          echo: "This is fist job and Third step"
