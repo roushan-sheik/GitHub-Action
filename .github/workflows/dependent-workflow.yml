@@ -1,4 +1,4 @@
-name: Multiple Workflow
+name: Dependent Workflow
 on:
   push:
     branches:
@@ -7,25 +7,25 @@ on:
     branches:
       - main
 jobs:
-  Multiple-first-job:
+  multiple-first-job:
     runs-on: ubuntu-latest
     steps:
-      - name: First step a log korte hobe
-        run: |-
-          echo: "This is fist job and first step"
-  Multiple-Second-job:
+      - name: First step - log something
+        run: |
+          echo "This is the first job and first step"
+  multiple-second-job:
     runs-on: ubuntu-latest
-    needs: [Multiple-first-job]
+    needs: multiple-first-job
     steps:
-      - name: First step a log korte hobe
-        run: |-
-          echo: "first job has been completed. second job is started."
-          echo: "This is fist job and Second step"
-  Multiple-Third-job:
+      - name: First step - log something
+        run: |
+          echo "First job has been completed. Second job is started."
+          echo "This is the second job and first step"
+  multiple-third-job:
     runs-on: ubuntu-latest
-    needs: [Multiple-first-job, Multiple-Second-job]
+    needs: [multiple-first-job, multiple-second-job]
     steps:
-      - name: First step a log korte hobe
-        run: |-
-          echo: "first job has been completed and  second job also."
-          echo: "This is fist job and Third step"
+      - name: First step - log something
+        run: |
+          echo "First job and second job have been completed."
+          echo "This is the third job and first step"
