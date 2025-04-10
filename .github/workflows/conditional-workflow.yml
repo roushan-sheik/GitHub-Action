@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: Build Backend Image
         run: |
-          echo "Backend Image is building..."
+          echo "Backend Image is building"
